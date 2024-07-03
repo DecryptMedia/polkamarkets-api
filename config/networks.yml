@@ -9,6 +9,7 @@ default: &default
   moonriver: 1285
   local: 1337
   mumbai: 80001
+  arbitrumSepolia: 421614
 
 production:
   <<: *default

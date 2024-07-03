@@ -89,3 +89,4 @@ production:
   database: polkamarkets_api_production
   username: polkamarkets_api
   password: <%= ENV['POLKAMARKETS_API_DATABASE_PASSWORD'] %>
+  host: <%= ENV.fetch("POLKAMARKETS_API_DATABASE_HOST") { 'localhost' } %>

@@ -36,6 +36,6 @@ yarn-debug.log*
 .yarn-integrity
 
 # env files
-.env*
+.env
 
 .DS_Store
