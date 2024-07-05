@@ -1,0 +1,7 @@
+apiVersion: v2
+name: polkamarkets-api
+version: "1.0.0"
+home: https://github.com/DecryptMedia/polkamarkets-api
+sources:
+  - https://github.com/Polkamarkets/polkamarkets-api
+appVersion: "3.0.0"

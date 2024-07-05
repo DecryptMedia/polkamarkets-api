@@ -87,6 +87,6 @@ staging:
 production:
   <<: *default
   database: polkamarkets_api_production
-  username: polkamarkets_api
+  username: <%= ENV["POLKAMARKETS_API_DATABASE_USERNAME"] %>
   password: <%= ENV['POLKAMARKETS_API_DATABASE_PASSWORD'] %>
   host: <%= ENV.fetch("POLKAMARKETS_API_DATABASE_HOST") { 'localhost' } %>

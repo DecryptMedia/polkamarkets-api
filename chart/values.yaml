@@ -1,0 +1,42 @@
+env:
+# config/environments/production.rb
+  - name: RAILS_SERVE_STATIC_FILES
+    value: "true"
+  - name: REDIS_URL
+    value: "redis://redis.redis-operator:6379"
+  - name: RAILS_LOG_TO_STDOUT
+    value: "true"
+
+# config/initializers/cors.yml
+  - name: CORS_ORIGINS
+    value: "*"
+
+# config/database.yml
+  - name: POLKAMARKETS_API_DATABASE_USERNAME
+    value: "pepe"
+  - name: POLKAMARKETS_API_DATABASE_HOST
+    value: "dastan-pg.postgres.database.azure.com"
+
+# config/ethereum.yml
+  - name: ETHEREUM_NETWORK_IDS
+    value: "421614"
+  - name: ETHEREUM_NETWORK_421614_BEPRO_API_URL
+    value: "http://polkamarkets-rpc-service:3333"
+  - name: ETHEREUM_NETWORK_421614_PREDICTION_MARKET_CONTRACT_ADDRESS
+    value: "0x8eF14cA9522c7a3a25515c361191BCC10804FbA5"
+  - name: ETHEREUM_NETWORK_421614_PREDICTION_MARKET_MANAGER_CONTRACT_ADDRESS
+    value: "0xA270E7994E4Af8a3aB63d00Aee0Be45934F39258"
+  - name: ETHEREUM_NETWORK_421614_REALITIO_ERC20_CONTRACT_ADDRESS
+    value: "0xF9ccc5F6d8Eb96571B5e5E05ED1d1dbbF9BdA6EC"
+  - name: ETHEREUM_NETWORK_421614_ERC20_CONTRACT_ADDRESS
+    value: "0xEfC17Af781c4A2630EB4b3B353E5929F3436082F"
+
+# config/polkamarkets.yml
+  - name: POLKAMARKETS_WEB_URL
+    value: "http://localhost:3000"
+
+# config/puma.yml
+  - name: RAILS_ENV
+    value: "production"
+  - name: PORT
+    value: "4000"

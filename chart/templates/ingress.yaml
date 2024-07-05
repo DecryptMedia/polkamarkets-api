@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  # https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#configuration-per-ingress-resource-through-annotations
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+    cert-manager.io/issue-temporary-certificate: "true"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    # Below link exaplains the buffer settings for fastcgi but the same rules apply here
+    # https://gist.github.com/magnetikonline/11312172
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "8k"
+
+spec:
+  # https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller
+  ingressClassName: webapprouting.kubernetes.azure.com
+  tls:
+    - hosts:
+        - pm-api.dastan.co
+      secretName: {{ .Release.Name }}-tls
+  rules:
+    - host: pm-api.dastan.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}-service
+                port:
+                  number: 4000
