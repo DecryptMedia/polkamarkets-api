@@ -40,3 +40,7 @@ env:
     value: "production"
   - name: PORT
     value: "4000"
+
+# config/routes.yml
+  - name: ADMIN_USERNAME
+    value: "admin"
